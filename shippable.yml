@@ -11,6 +11,8 @@ jdk:
 
 build_image: shippableimages/ubuntu1204_java
 
+
+
 before_install:
    - apt-get update
    - apt-get install -y maven
@@ -26,5 +28,6 @@ before_script:
 after_success:
    - mvn clean cobertura:cobertura
    - mvn test
+
 
 archive: true

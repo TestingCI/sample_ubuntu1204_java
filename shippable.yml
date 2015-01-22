@@ -26,6 +26,7 @@ after_success:
    - mvn test
 
 archive: true
+
 branches:
   only:
     - master

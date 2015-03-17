@@ -1,6 +1,8 @@
 language: java
 
 env: 
+global:
+  - secure: F6//nZwSvmCH5MBnBPcZxUXxvgdQf7QjK5hcvE2slU6S13JeWS+NfEUk2RfCPMlnah9kL/c/CbbXFweNZ5NyyWpZxjN7sdAVO5AP+qTTzgdSR9hajAnrurso1zr8CDRZzYflyUFC7kuKtfo/ndbeRS1mLH9jG7gBqM1o3Ncx1Xff/3CPUTEDjggSCoMt+Lzz7n/ZHxe/6/w3cXQ4uVNKHA8cwl8VO0GL432eVDnoiysLV3pgvrXQtTlFk/1T7soA+ZZRDbCSGrqhMEe+m9QzKA07ohUgH/aZGfvIFSDw+AGilw+9BOaLNUjfGXO5iWDcBuYxuhgbZIoSPN2mfeD2Gg==
   - secure: qZncZdIg/Dwhoxr+z3QE8D76PBZnmXU0ssXDwuFt8JR2AL4OyorKOKL0Ff+zh/0Uvdc2dVQmcNEo215i0xKN/6R5r15cx1ObpK4zBzG8bGU8GtPBlFH8uo1KuWQXT+nLJpIXPzb3w+xz+JA4GkoYiplfjpHze178/ac0BFKA1X+stlmRcQ2Wt4TeOvMVglvwt0NusIM00+Fo32UWi/7jWn7nBtrHsPZg4Kv3Wqb7iaP9S4BMZiaMtLjbd3lPrL1nDIH9WWkr96MHISBkTzdguVFV7/im3MnnxveLyfMKb7HZmI7QqO/C/Jtq1W/rs2Xuf6BS0P3WzSVOdNZeZSQI
 
 jdk:
@@ -23,6 +25,7 @@ before_script:
    - if [[ $SHIPPABLE_JDK_VERSION == "oraclejdk8" ]] ; then export JAVA_HOME="/usr/lib/jvm/java-8-oracle"; export PATH="$PATH:/usr/lib/jvm/java-8-oracle/bin"; export java_path="/usr/lib/jvm/java-8-oracle/jre/bin/java"; fi
    - update-alternatives --set java $java_path
    - java -version
+   - echo $test
 
 after_success:
    - mvn clean cobertura:cobertura

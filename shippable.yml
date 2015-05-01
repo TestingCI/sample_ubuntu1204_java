@@ -1,5 +1,6 @@
 language: java
 
+cache: true
 
 jdk:
    - openjdk7

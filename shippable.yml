@@ -32,3 +32,4 @@ archive: true
 branches:
   only:
     - master
+    - "1404"

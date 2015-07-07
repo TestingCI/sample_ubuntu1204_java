@@ -1,5 +1,6 @@
 language: java
-
+env:
+ - secure: dz78Eo2pCCH+lGYw+AmxlyftTeCQf4dNlJRnR5OuX7OWQ1cg8TacwonHLK6kJ9RnAqeU+nTRoYmXX1aGUnZkua3f7M+JYqZPCzv2k78GLVkvrU8S/GW/GvXKHMTebnZugrhlGAmZ79daNdsyW6tJ7bfVBwP00pQNccDedHBhy7jPQO/80Cc8cZr7k5oSFaiw4DDIKgi5XlB0c947TzGgZJ8jgX9gSJFk6OTUolnlnbpL92PP+BatqBm1y/5Xn93uU+h2LROI4/7OaWkgPs2uqY1BXW6CEWTqrjnpy2ibYRPMNgzZYUmYeZ2TZYAajMCGE107SWznGiP0XIEvoPLOkA==
 cache: true
 
 jdk:
@@ -21,6 +22,7 @@ before_script:
    - if [[ $SHIPPABLE_JDK_VERSION == "oraclejdk8" ]] ; then export JAVA_HOME="/usr/lib/jvm/java-8-oracle"; export PATH="$PATH:/usr/lib/jvm/java-8-oracle/bin"; export java_path="/usr/lib/jvm/java-8-oracle/jre/bin/java"; fi
    - update-alternatives --set java $java_path
    - java -version
+   - echo $prod_org
 
 after_success:
    - mvn clean cobertura:cobertura

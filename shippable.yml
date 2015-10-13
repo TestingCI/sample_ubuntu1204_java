@@ -26,6 +26,7 @@ before_script:
    - java -version
    - echo $test
 
+
 after_success:
    - mvn clean cobertura:cobertura
    - mvn test
